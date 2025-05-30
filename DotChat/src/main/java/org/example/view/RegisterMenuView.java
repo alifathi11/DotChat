@@ -48,7 +48,7 @@ public class RegisterMenuView implements AppMenu {
     }
 
     @Override
-    public String getResponse(String prompt) {
+    public String getUserResponse(String prompt) {
         System.out.println(prompt);
         return scanner.nextLine();
     }

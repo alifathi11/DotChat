@@ -1,18 +1,18 @@
 package org.example.view;
 
-import org.example.Enums.MenuCommandPatterns.ProfileMenuCommands;
-import org.example.Enums.MenuCommandPatterns.RegisterMenuCommands;
-import org.example.controller.ProfileMenuController;
-import org.example.controller.RegisterMenuController;
+import org.example.Enums.MenuCommandPatterns.ChatMenuCommands;
+import org.example.Enums.MenuCommandPatterns.MainMenuCommands;
+import org.example.controller.ChatMenuController;
+import org.example.controller.MainMenuController;
 
 import java.util.Scanner;
 
-public class ProfileMenuView implements AppMenu {
+public class ChatMenuView implements AppMenu {
 
-    private final ProfileMenuController controller;
+    private final ChatMenuController controller;
     private final Scanner scanner;
 
-    public ProfileMenuView(ProfileMenuController controller) {
+    public ChatMenuView(ChatMenuController controller) {
         this.controller = controller;
         this.scanner = new Scanner(System.in);
 
@@ -24,7 +24,7 @@ public class ProfileMenuView implements AppMenu {
         String input = scanner.nextLine().trim();
         boolean matched = false;
 
-        for (ProfileMenuCommands command : ProfileMenuCommands.values()) {
+        for (ChatMenuCommands command : ChatMenuCommands.values()) {
             if (command.getMatcher(input) != null) {
                 execute(command);
                 matched = true;
@@ -34,14 +34,10 @@ public class ProfileMenuView implements AppMenu {
         if (!matched) System.out.println("Invalid command. Please try again.");
     }
 
-    private void execute(ProfileMenuCommands command) {
+    private void execute(ChatMenuCommands command) {
         switch (command) {
-            case SHOW_PROFILE -> controller.showProfile();
-            case CHANGE_USERNAME -> controller.changeUsername();
-            case CHANGE_PASSWORD -> controller.changePassword();
-            case CHANGE_BIO -> controller.changeBio();
-            case EXIT -> controller.exit();
-            default -> System.out.println("Unknown Error.");
+            case SEND_MESSAGE -> controller.sendMessage();
+            default -> System.out.println("Unknown error.");
         }
     }
 
@@ -55,4 +51,5 @@ public class ProfileMenuView implements AppMenu {
         System.out.println(prompt);
         return scanner.nextLine();
     }
+
 }

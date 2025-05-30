@@ -3,17 +3,13 @@ package org.example.Enums.MenuCommandPatterns;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public enum ProfileMenuCommands implements MenuCommands {
-    SHOW_PROFILE("^show\\s+profile$"),
-    CHANGE_USERNAME("^change\\s+username$"),
-    CHANGE_PASSWORD("^change\\s+password$"),
-    CHANGE_BIO("^change\\s+bio$"),
-    EXIT("^exit$")
+public enum ChatMenuCommands implements MenuCommands {
+    SEND_MESSAGE("^send\\s+message$"),
     ;
 
     private final String pattern;
 
-    ProfileMenuCommands(String pattern) {
+    ChatMenuCommands(String pattern) {
         this.pattern = pattern;
     }
 

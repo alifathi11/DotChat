@@ -25,8 +25,8 @@ public class RegisterMenuController {
 
     public void login() {
 
-        String username = view.getResponse("Enter your username: ");
-        String password = view.getResponse("Enter your password: ");
+        String username = view.getUserResponse("Enter your username: ");
+        String password = view.getUserResponse("Enter your password: ");
 
         Map<String, String> request = new HashMap<>();
         request.put("type", "login");
@@ -48,7 +48,7 @@ public class RegisterMenuController {
 
             if (response.get("status").equals("success")) {
                 view.showMessage(username + ", Welcome to DotChat!");
-                // TODO: change menu -> App.getInstance().setCurrentMenu(Menus.MAIN_MENU);
+                App.getInstance().setCurrentMenu(Menus.MAIN_MENU);
             } else {
                 view.showMessage("Login failed: " + response.get("error"));
             }
@@ -60,9 +60,9 @@ public class RegisterMenuController {
     }
     public void signup() {
 
-        String username = view.getResponse("Enter your username: ");
-        String password = view.getResponse("Enter your password: ");
-        String email = view.getResponse("Enter your email address: ");
+        String username = view.getUserResponse("Enter your username: ");
+        String password = view.getUserResponse("Enter your password: ");
+        String email = view.getUserResponse("Enter your email address: ");
 
         Map<String, String> signupRequest = new HashMap<>();
         signupRequest.put("type", "signup");
@@ -85,7 +85,7 @@ public class RegisterMenuController {
 
             if (response.get("status").equals("success")) {
                 view.showMessage("User created successfully. You are now in Main menu.");
-                // TODO: change menu -> App.getInstance().setCurrentMenu(Menus.MAIN_MENU);
+                App.getInstance().setCurrentMenu(Menus.MAIN_MENU);
 
             } else {
                 view.showMessage("Signup failed: " + response.get("error"));
@@ -98,8 +98,8 @@ public class RegisterMenuController {
     }
     public void forgetPassword() {
 
-        String username = view.getResponse("Enter your username: ");
-        String email = view.getResponse("Enter your email address: ");
+        String username = view.getUserResponse("Enter your username: ");
+        String email = view.getUserResponse("Enter your email address: ");
 
         Map<String, String> request = new HashMap<>();
         request.put("type", "forget-password");

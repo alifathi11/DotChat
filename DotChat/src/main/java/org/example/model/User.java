@@ -4,6 +4,7 @@ public class User {
     private String username;
     private String passwordHash;
     private String emailAddress;
+    private String biography;
     private Statue status;
 
     public User(String username,
@@ -12,6 +13,7 @@ public class User {
         this.username = username;
         this.passwordHash = passwordHash;
         this.emailAddress = emailAddress;
+        this.biography = "";
 
         this.status = Statue.ONLINE;
         /*
@@ -48,6 +50,14 @@ public class User {
     }
     public void setStatus(Statue status) {
         this.status = status;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 }
 

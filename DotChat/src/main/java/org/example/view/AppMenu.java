@@ -5,5 +5,5 @@ import java.util.regex.Matcher;
 public interface AppMenu {
     void handleUserInput();
     void showMessage(String message);
-    String getResponse(String prompt);
+    String getUserResponse(String prompt);
 }

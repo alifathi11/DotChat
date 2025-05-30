@@ -2,14 +2,19 @@ package org.example.model;
 
 import org.example.Enums.Menus.Menus;
 
+import java.util.ArrayList;
+
 public class App {
     private static App app;
 
-    private boolean exitApp = false;
-    private Menus currentMenu = Menus.REGISTER_MENU;
+    private boolean exitApp;
+    private Menus currentMenu;
+    private User currentUser;
 
     private App() {
-
+        this.exitApp = false;
+        this.currentMenu = Menus.REGISTER_MENU;
+        this.currentUser = null;
     }
 
     public static App getInstance() {
@@ -34,4 +39,13 @@ public class App {
     public boolean isAppFinished() {
         return exitApp;
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
 }
